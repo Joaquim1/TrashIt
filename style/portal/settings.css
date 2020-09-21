@@ -1,0 +1,48 @@
+.container .user-info {
+    height: 580px;
+}
+
+.settings-form label{
+    margin-bottom: 3px;
+    display: inline-block;
+	color: #6f6f6f;
+}
+
+.settings-form input[type="text"] {
+    width: 570px;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.settings-form input[type="password"] {
+    width: 280px;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.settings-form input[type="password"].full-text {
+    width: 570px;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+input[type="submit"] {
+	width: 255px;
+	height: 40px;
+	background: #002d47;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	padding: 7px 7px 9px 7px;
+	cursor: pointer;
+}
+
+.settings-form a {
+    font-size: 19px;
+    margin-left: 30px;
+    color: #6f6f6f;
+    font-weight: bold;
+}

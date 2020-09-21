@@ -1,0 +1,50 @@
+{head}
+<link href="[siteurl]/style/portal/settings.css" type="text/css" rel="stylesheet" />
+<title>[sitetitle] - Portal</title>
+{/head}
+
+{content}
+<div class="container">
+	[portal-nav]
+
+	<div class="user-info">
+		[left-nav]
+		<div class="portal-content">
+			<h1>Settings</h1>
+			{{if:bad-setting-form}}
+				<div class="center"><p class="error">Please fill out all fields</p></div>
+				{{elseif:bad-setting-email}}
+					<div class="center"><p class="error">Please enter a valid email address</p></div>
+				{{/elseif}}
+				{{elseif:used-setting-email}}
+					<div class="center"><p class="error">That email is already in use</p></div>
+				{{/elseif}}
+				{{elseif:bad-setting-phone}}
+					<div class="center"><p class="error">Please enter a valid phone number (10 numbers)</p></div>
+				{{/elseif}}
+				{{elseif:bad-password}}
+					<div class="center"><p class="error">Please enter your correct password</p></div>
+				{{/elseif}}
+				{{elseif:success}}
+					<div class="center"><p class="success">Settings updated successfully</p></div>
+				{{/elseif}}
+			{{/if}}
+			<form action="[siteurl]/portal/proc/proc.php" method="post" class="settings-form">
+				<input type="hidden" name="action" value="updatesettings" />
+				<label>First Name</label><br />
+				<input type="text" value="[[firstname]]" name="firstname" /><br />
+				<label>Last Name</label><br />
+				<input type="text" value="[[lastname]]" name="lastname" /><br />
+				<label>Email</label><br />
+				<input type="text" value="[[email]]" name="email" /><br />
+				<label>Phone Number</label><br />
+				<input type="text" value="[[phonenumber]]" name="phonenumber" /><br />
+				<label>Current Password</label><br />
+				<input type="password" class="full-text" name="curpass" />
+				<div class="line"></div>
+				<input type="submit" value="Save" /> <a href="./">Cancel</a>
+			</form>
+		</div>
+	</div>
+</div>
+{/content}

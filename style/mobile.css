@@ -1,0 +1,166 @@
+@media screen and (max-width:736px) {
+	.container {
+		min-width: 0px;
+	}
+
+	.nav {
+		display: none;
+		background: #f1f1f1;
+		width: 100%;
+		margin-right:0px;
+		text-align: center;
+		position: absolute;
+		top: 67px;
+		left: 0;
+	    box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+	}
+
+	.nav ul li a.navLink {
+		color: #000;
+	}
+
+	.nav ul li {
+		float: none;
+	    margin-bottom: 15px;
+	}
+
+	.container .top-cont {
+		background: url('../images/home/homebg.jpg') no-repeat;
+		background-size: cover;
+	}
+
+	.container .top-cont #main-video {
+	    display: none;
+	}
+
+	.container .top-cont #mask {
+		width: initial;
+		min-width: 0px;
+		width: 100%;
+	}
+
+	.holder {
+		width: 100%;
+	}
+
+	.mobile-nav {
+	    display: block;
+	    position: absolute;
+	    right: 0px;
+	    top: 0px;
+	    z-index: 9999;
+	}
+
+	.container .top-cont .holder .main-text .button {
+		margin-bottom: 7px;
+	}
+
+	.container .content-2 {
+		height: 600px;
+	}
+
+	.container .content-2 .info {
+		margin-right: 0px;
+	}
+
+	.plan-holder {
+		width: 100%;
+		text-align: center;
+	}
+
+	.price-holder {
+		height: 850px;
+	}
+
+	.plan-holder .plan {
+	    float: none;
+	    width: 90%;
+	    margin: auto;
+	    margin-bottom: 90px;
+	}
+
+	.center h1 {
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.working-container {
+	    width: 90%;
+	    min-width: 0;
+	    padding: 0;
+	    height: 1000px;
+	}
+
+	.working-container .icon {
+		background-position: center;
+	    margin-bottom: 86px;
+	    text-align: center;
+	}
+
+	.working-container .icon .info {
+		left: 0px;
+		top: 200px;
+	}
+
+	.working-container .icon .info-left {
+		right: 0;
+    	top: 210px;
+	}
+
+	.reg-holder {
+	    width: 100%;
+        height: 580px;
+	}
+
+	.reg-holder .info-holder {
+		display: none;
+	}
+
+	.reg-holder .form-holder {
+		float: none;
+	}
+
+	.reg-holder .form-holder input[type="email"], .reg-holder .form-holder input[type="name"], .reg-holder .form-holder input[type="password"], .reg-holder .form-holder input[type="submit"] {
+		width: 90%;
+		display: inline-block;
+	}
+
+	#firstname {
+	    margin-left: -4px;
+	}
+
+	.error {
+		width: 95%;
+	}
+
+	.line {
+		width: 100%;
+	}
+
+	div.hosted-field {
+		width: 95%;
+	}
+
+	input[type="submit"], input[type="button"] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+
+	.container .content-3 {
+		height: 900px;
+	}
+
+	.content-3 .icon {
+		background: #fff;
+		height: 300px;
+		margin-bottom: 0px;
+	    display: block;
+   		margin: auto;
+   		box-shadow: initial;
+	}
+
+	.content-3 .icon .info {
+		position: initial;
+		width: 100%;
+		padding-top: 10px;
+	}
+}

@@ -1,0 +1,44 @@
+{head}
+<link href="[siteurl]/style/portal/home.css" type="text/css" rel="stylesheet" />
+<title>[sitetitle] - Portal</title>
+{/head}
+
+{content}
+<div class="container">
+	[portal-nav]
+
+	<div class="user-info">
+		[left-nav]
+		<div class="portal-content">
+			<h1>Welcome back, [[firstname]]</h1>
+			{{if:is-desktop}}
+				{{else}}
+					<div class="line"></div>
+				{{/else}}
+			{{/if}}
+			{{if:has-subscription}}
+				<div><b>Next Trash Pickup: </b>[[next_pickup]]</div>
+				<br />
+				<div><b>Trash Pickup Day 1: </b>[[day1]] at [[time1]]</div>
+				<br />
+				<div><b>Trash Pickup Day 2: </b>[[day2]] at [[time2]]</div>
+				<div><br />To see more details, please go to the <a href="subscription">subscription</a> page.</div>
+				{{else}}
+					You are currently not subscribed to any plan!<br /><br />
+					<a href="[siteurl]/portal/subscribe">Subscribe to a plan</a>
+				{{/else}}
+			{{/if}}
+
+			{{if:subscription-end}}
+				<br />
+				<div style="color: red">Your subscription is set to end on <b>[[subscription_enddate]]</b></div>
+			{{/if}}
+
+			{{if:past-due}}
+				<br />
+				<div style="color: red"><b>Your account is past due! Please <a href="[siteurl]/portal/subscription" style="color: red;text-decoration: underline">update your credit card information</a></b></div>
+			{{/if}}
+		</div>
+	</div>
+</div>
+{/content}

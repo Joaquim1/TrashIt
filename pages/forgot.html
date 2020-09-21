@@ -1,0 +1,62 @@
+{head}
+	<title>Forgot Password</title>
+	<link href="[siteurl]/style/login.css" rel="stylesheet" type="text/css" />
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+{/head}
+
+{content}
+	<div class="container">
+		[nav]
+		{{if:check-email}}
+			<div class="login-holder">
+			{{else}}
+				<div class="login-holder">
+			{{/else}}
+		{{/if}}
+			{{if:bad-email}}
+				<div class="error" style="margin-bottom: 10px;">That email is not associated with an account.</div>
+				{{elseif:pass-creds}}
+					<div class="error" style="margin-bottom: 10px;">Your password must be at least 7 characters with letters and numbers.</div>
+				{{/elseif}}
+				{{elseif:bad-key}}
+					<div class="error" style="margin-bottom: 10px;">There was an error with your reset code. Please re-click the link from your email.</div>
+				{{/elseif}}
+				{{elseif:bad-pass-match}}
+					<div class="error" style="margin-bottom: 10px;">The passwords you entered did not match.</div>
+				{{/elseif}}
+			{{/if}}
+			{{if:check-email}}
+				<div class="login-form" style="background: #fff;padding: 20px;">
+					<div class="success">An email has been sent to you with instructions to reset your password.</div>
+				</div>
+				{{elseif:reset-code}}
+					<h1>Password Reset</h1>
+					<div class="line"></div>
+					<div class="login-form">
+						<form action="[siteurl]/proc/proc.php" method="POST">
+							<input type="hidden" name="action" value="resetpassword" />
+							<input type="hidden" name="verification_key" value="{{get:param2}}" />
+							<input type="password" placeholder="New Password" name="newpass" /><br />
+							<input type="password" placeholder="Re-type Password" name="confpass" /><br />
+							<input type="submit" value="Reset Password" />
+						</form>
+					</div>
+				{{/elseif}}
+				{{elseif:success}}
+					<div class="success">You have successfully reset your password</div>
+				{{/elseif}}
+				{{else}}
+					<div><h1>Forgot Password</h1></div>
+					<div class="line" style="margin-top: 10px"></div>
+					<div class="login-form">
+						<form action="[siteurl]/proc/proc.php" method="POST">
+							<input type="hidden" name="action" value="forgot" />
+							<input type="email" placeholder="Email Address" id="user-email" name="email" /><br />
+							<input type="submit" value="Submit" />
+						</form>
+					</div>
+				{{/else}}
+			{{/if}}
+		</div>
+	</div>
+{/content}

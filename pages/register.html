@@ -1,0 +1,45 @@
+{head}
+	<link href="[siteurl]/style/register.css" rel="stylesheet" type="text/css" />
+	<script src="[siteurl]/scripts/register.js"></script>
+	<title>Register</title>
+{/head}
+
+{content}
+	<div class="container">
+		[nav]
+		<div class="center">
+			<div class="reg-holder">
+				<h1>Create an Account</h1>
+				<div class="info-holder">
+					<div class="trash-process"></div>
+				</div>
+				<div class="form-holder">
+					{{if:invalid-email}}
+						<div class="error" id="error" style="visibility: visible">Please enter a valid email</div>
+						{{elseif:used-email}}
+							<div class="error" id="error" style="visibility: visible">That email is already in use</div>
+						{{/elseif}}
+						{{elseif:pass-creds}}
+							<div class="error" id="error" style="visibility: visible">Your password must be at least 7 characters with letters and numbers.</div>
+						{{/elseif}}
+						{{else}}
+							<div class="error" id="error">Please enter a valid first name</div>
+						{{/else}}
+					{{/if}}
+					<form method="POST" onsubmit="return checkForm()" action="[siteurl]/proc/proc.php">
+						<input type="hidden" name="action" value="register" />
+						<input type="name" placeholder="First Name" id="firstname" name="firstname" />
+						<input type="name" placeholder="Last Name" id="lastname" name="lastname" />
+						<br />
+						<input type="email" placeholder="Email Address" id="email" name="email" /><br />
+						<input type="password" placeholder="Password" id="password" name="password" /><br />
+						<input type="password" placeholder="Confirm Password" id="confpass" /><br />
+						<input type="submit" value="Register" />
+					</form>
+					<div class="line"></div>
+					Already have an account? <a href="[siteurl]/login">Login</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{/content}

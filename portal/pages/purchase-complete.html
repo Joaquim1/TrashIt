@@ -1,0 +1,39 @@
+{head}
+<link href="[siteurl]/style/portal/home.css" type="text/css" rel="stylesheet" />
+<title>[sitetitle] - Portal</title>
+{/head}
+
+{content}
+<div class="container">
+	[portal-nav]
+
+	<div class="user-info">
+		[left-nav]
+		<div class="portal-content">
+			{{if:purchase-complete}}
+				<h1>Thank you for subscribing!</h1>
+				<div>Order Number: [[order-number]]</div>
+				<div>Order Total: $[[price]]</div>
+				<br />
+				<div>You will receive an email confirmation shortly at [[email]]</div><br />
+				<div>You will be billed <b>$[[price]]</b> on the <b>[[billing-day]]</b> of each month.</div>
+				<br />
+				<div>Your trash will be picked up on <b>[[day1]]</b> at <b>[[time1]]</b> and <b>[[day2]]</b> at <b>[[time2]]</b> of every week.</div>
+				<div><b>Note</b>: Please make sure your trash is out during this time or it will not be picked up</div>
+				<div class="line"></div>
+				<div>Address Details: </div>
+				<div>
+					[[complex_name]]<br />
+					[[address_1]] [[address_2]]<br />
+					[[city]], [[state]]<br /><br />
+					Building Number: [[building_num]]<br />
+					Gate Code: [[gate_code]]
+				</div>
+				{{else}}
+					What are you doing here?
+				{{/else}}
+			{{/if}}
+		</div>
+	</div>
+</div>
+{/content}

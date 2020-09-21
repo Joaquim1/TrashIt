@@ -1,0 +1,70 @@
+.icon-info {
+	position: absolute;
+	top: 150px;
+    left: 0px;
+}
+
+#logo {
+    background: url(../images/home/logo-white.png) no-repeat center;
+    background-size: 153px 50px;
+}
+
+.holder {
+	width: 1017px;
+	height: 708px;
+}
+
+.icon {
+	position: relative;
+	width: 90%;
+    height: 320px;
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.08);
+}
+
+.icon .info {
+    display: inline-block;
+    position: absolute;
+    width: 38%;
+    height: calc(100% - 25px);
+    padding-top: 25px;
+    padding-right: 10px;
+    right: 100px;
+    top: 0px;
+    background: #fff;
+}
+
+.icon .info ul li {
+	color: #676767;
+	margin-bottom: 8px;
+}
+
+.icon .left {
+	left: 100px;
+}
+
+.info li {
+    font-family: 'Lora', serif;
+    font-size: 19px;
+}
+
+.user-laptop {
+    background: url(../images/home/computer-business.jpg) #fff no-repeat;
+    background-size: 616px 288px;
+    background-position: 40px 14px;
+}
+
+.full-garbage {
+    background: url(../images/home/full-garbage.jpg) #fff no-repeat right;
+    background-size: 600px 286px;
+    background-position: 95% 18px;
+    height: 320px;
+}
+
+.pickup-truck {
+    background: url(../images/home/pickup-truck.jpg) #fff no-repeat;
+    background-size: 616px 300px;
+    background-position: 40px 8px;
+}

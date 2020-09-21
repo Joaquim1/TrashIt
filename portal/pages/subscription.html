@@ -1,0 +1,298 @@
+{head}
+<link href="[siteurl]/style/portal/home.css" type="text/css" rel="stylesheet" />
+<link href="[siteurl]/style/portal/subscribe.css" type="text/css" rel="stylesheet" />
+<link href="[siteurl]/style/portal/braintreepayment.css" type="text/css" rel="stylesheet" />
+<link href="[siteurl]/style/portal/subscription.css" type="text/css" rel="stylesheet" />
+<script src="[siteurl]/scripts/jquery.numeric.min.js"></script>
+<title>[sitetitle] - Portal</title>
+{/head}
+
+{content}
+<div class="mask"></div>
+<div class="container">
+	[portal-nav]
+
+	<div class="user-info">
+		[left-nav]
+		<div class="portal-content">
+			{{if:has-subscription}}
+			<div class="popup" id="updateaddress">
+				<div class="close"></div>
+				<h1>Update Pickup Information</h1>
+				<div class="center">
+				<form action="[siteurl]/portal/proc/proc.php" method="post" class="address">
+					<input type="hidden" name="action" value="updatepickup" />
+					<span class="group">
+						<input type="text" value="[[complex_name]]" name="complex-name" required /><br />
+						<label id="test">Apartment Complex Name</label>
+					</span>
+					<span class="group">
+						<input type="text" value="[[address_1]]" name="address-1" required /><br />
+						<label>Address</label>
+					</span>
+					<span class="group">
+						<input type="text" value="[[address_2]]" name="address-2" /><br />
+						<label>Apt/Floor/Suite</label>
+					</span>
+					<span class="group">
+						<input type="text" value="[[building_num]]" name="building-num" /><br />
+						<label>Building Number (optional)</label>
+					</span>
+					<span class="group">
+						<input type="text" value="[[gate_code]]" name="gate-code" /><br />
+						<label>Gate Code (optional)</label>
+					</span>
+					<span class="group">
+						<input type="text" id="input-city" value="Tallahassee" disabled />
+						<label>City</label>
+					</span>
+					<span class="group">
+						<input type="text" id="input-state" value="Florida" disabled />
+						<label>State</label>
+					</span>
+					<span class="group">
+						<input type="text" id="input-zip" value="[[zip_code]]" name="zip-code" maxlength="5" required /><br />
+						<label>Zip Code</label>
+					</span>
+					<div>Trash Pickup Days (Pick 2):<br />
+						<label><input type="checkbox" name="pickupDays[]" value="1" />Monday</label> 
+						<label><input type="checkbox" name="pickupDays[]" value="3" />Wednesday</label>
+						<label><input type="checkbox" name="pickupDays[]" value="5" />Friday</label>
+						<br />
+						*Your trash will only be picked up twice per week
+					</div><br />
+					Pickup Time Slot (Day 1): 
+					<select name="pickupTime1">
+						<option value="8">No Preference</option>
+						<option value="0">11:00 AM - 12:00 PM</option>
+						<option value="1">12:00 PM - 1:00 PM</option>
+						<option value="2">1:00 PM - 2:00 PM</option>
+						<option value="3">2:00 PM - 3:00 PM</option>
+						<option value="4">3:00 PM - 4:00 PM</option>
+						<option value="5">4:00 PM - 5:00 PM</option>
+						<option value="6">5:00 PM - 6:00 PM</option>
+						<option value="7">6:00 PM - 7:00 PM</option>
+					</select>
+					<br /><br />
+					Pickup Time Slot (Day 2): 
+					<select name="pickupTime2">
+						<option value="8">No Preference</option>
+						<option value="0">11:00 AM - 12:00 PM</option>
+						<option value="1">12:00 PM - 1:00 PM</option>
+						<option value="2">1:00 PM - 2:00 PM</option>
+						<option value="3">2:00 PM - 3:00 PM</option>
+						<option value="4">3:00 PM - 4:00 PM</option>
+						<option value="5">4:00 PM - 5:00 PM</option>
+						<option value="6">5:00 PM - 6:00 PM</option>
+						<option value="7">6:00 PM - 7:00 PM</option>
+					</select>
+					<input type="submit" value="Update" />
+				</form>
+				</div>
+			</div>
+			{{/if}}
+			<div class="popup" id="updatecard">
+				<div class="close"></div>
+				{{if:subscription-end}}
+					Your subscription is set to end on <b>[[subscription_enddate]]</b>. You will not be billed again.
+					{{elseif:has-subscription}}
+						<h1>Update Credit Card</h1>
+						<p class="error" style="display:none;" id="ccerror">Please ensure all fields are entered correctly</p>
+						<div class="demo-frame">  
+							<form action="[siteurl]/portal/proc/proc.php" method="post" id="cardForm" >
+								<input type="hidden" name="action" value="update-payment" />
+								<div style="position: relative;">
+							    <label class="hosted-fields--label" for="card-number">Card Number</label>
+							    <div id="card-number" class="hosted-field"></div>
+								</div>
+
+								<div style="position: relative;">
+								<label class="hosted-fields--label" for="expiration-date">Expiration Date</label>
+								<div id="expiration-date" class="hosted-field"></div>
+								</div>
+
+								<div style="position: relative;">
+								<label class="hosted-fields--label" for="cvv">CVV</label>
+								<div id="cvv" class="hosted-field"></div>
+								</div>
+
+								<div style="position: relative;">
+								<label class="hosted-fields--label" for="postal-code">Postal Code</label>
+								<div id="postal-code" class="hosted-field"></div>
+								</div>
+
+								<div class="button-container">
+								<input type="submit" class="button" value="Continue"/>
+								</div>
+							</form>
+						</div>
+					{{/elseif}}
+				{{/if}}
+			</div>
+			<div class="popup" id="cancelsubscription">
+				<div class="close"></div>
+				{{if:subscription-end}}
+					Your subscription is set to end on <b>[[subscription_enddate]]</b>.
+					{{elseif:has-subscription}}
+						<h1>Cancel Subscription</h1>
+						<div>
+							Are you sure you want to cancel your subscription? If so, your trash will continue to be picked up until <b>[[nextPayment]]</b> and you will not be charged again.<br /><br />
+							<div class="center">
+								<form action="[siteurl]/portal/proc/proc.php" method="post">
+									<input type="hidden" name="action" value="cancelsubscription" />
+									<input type="password" name="curpass" placeholder="Enter Password" />
+									<input type="submit" value="Cancel Subscription" />
+								</form>
+							</div>
+						</div>
+					{{/elseif}}
+				{{/if}}
+			</div>
+			{{if:bad-update-form}}
+				<div class="center"><p class="error">Please fill out all the fields of the update form.</p></div>
+				{{elseif:bad-update-distance}}
+					<div class="center"><p class="error">That new address is too far from FSU.</p></div>
+				{{/elseif}}
+				{{elseif:bad-update-address}}
+					<div class="center"><p class="error">The address you entered is invalid.</p></div>
+				{{/elseif}}
+				{{elseif:bad-update-error}}
+					<div class="center"><p class="error">There was an error processing your request. Please try again.</p></div>
+				{{/elseif}}
+				{{elseif:bad-password}}
+					<div class="center"><p class="error">Please enter the correct password.</p></div>
+				{{/elseif}}
+				{{elseif:update-success}}
+					<div class="center"><p class="success">Your changes have successfully been saved</p></div>
+				{{/elseif}}
+			{{/if}}
+			{{if:has-subscription}}
+				<h1 style="margin-bottom: 5px;display: inline">My Subscription</h1>
+				<div class="line"></div>
+				<div>
+					<table class="info-table">
+						<tr><td>Subscription Start Date:</td><td>[[subscription_startdate]]</td></tr>
+						<tr><td>Subscription End Date:</td><td>[[subscription_enddate]]</td></tr>
+						<tr><td>Next Payment Amount:</td><td> $[[subscription_amount]]</td></tr>
+						<tr><td>Next Payment Date:</td><td> [[nextPayment]]</td></tr>
+						<tr><td>Billed to card:</td><td> **** **** **** [[card_last4]]</td></tr>
+					</table>
+				</div>
+				<div class="line"></div>
+				<div>
+					<table class="info-table">
+						<tr><td>Complex Name:</td> <td>[[complex_name]]</td></tr>
+						<tr><td>Full Address:</td> <td>[[address_1]] [[address_2]]</td></tr>
+						<tr><td>City, State, Zip:</td> <td>[[city]], [[state]] [[zip_code]]</td></tr>
+						<tr><td>Building Number:</td> <td>[[building_num]]</td></tr>
+						<tr><td>Gate Code:</td> <td>[[gate_code]]</td></tr>
+						<tr><td>Apartment Style:</td> <td>[[apartment_rooms]] bedroom</td></tr>
+					</table>
+
+				</div>
+				<div class="line"></div>
+				<div>
+					Next Pickup: <b>[[next_pickup]]</b>
+					<br />
+					Trash Pickup Day 1: <b>[[day1]]</b> at <b>[[time1]]</b>
+					<br />
+					Trash Pickup Day 2: <b>[[day2]]</b> at <b>[[time2]]</b>
+				</div>
+				<div class="line"></div>
+				<div class="center">
+					<div class="button green" onclick="openPopup('#updateaddress')">Update Pickup Info</div>
+					<div class="button green" onclick="openPopup('#updatecard')">Update Credit Card</div>
+					<div class="button red" onclick="openPopup('#cancelsubscription')">Cancel Subscription</div>
+				</div>
+				{{else}}
+					You are currently not subscribed to any plan!<br /><br />
+					<a href="[siteurl]/portal/subscribe">Subscribe to a plan</a>
+				{{/else}}
+			{{/if}}
+		</div>
+	</div>
+</div>
+
+<script src="https://js.braintreegateway.com/web/3.12.0/js/client.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.12.0/js/hosted-fields.min.js"></script>
+<script>
+	var form = document.querySelector('#cardForm');
+	$.get("[siteurl]/portal/proc/braintree_tk.php", function(data) {
+		braintree.client.create({
+		  authorization: data
+		}, function(err, clientInstance) {
+		  if (err) {
+		    console.error(err);
+		    return;
+		  }
+		  createHostedFields(clientInstance);
+		});
+	});
+
+	function createHostedFields(clientInstance) {
+		braintree.hostedFields.create({
+		    client: clientInstance,
+		    styles: {
+		      	'input': {
+		        'font-size': '16px',
+		        'font-family': 'Arial',
+		        'font-weight': 'lighter',
+		        'color': '#ccc'
+		      },
+		      ':focus': {
+		        'color': 'black'
+		      },
+		      '.valid': {
+		        'color': '#8bdda8'
+		      }
+		    },
+		    fields: {
+		      number: {
+		        selector: '#card-number',
+		        placeholder: '4111 1111 1111 1111'
+		      },
+		      cvv: {
+		        selector: '#cvv',
+		        placeholder: '123'
+		      },
+		      expirationDate: {
+		        selector: '#expiration-date',
+		        placeholder: 'MM/YYYY'
+		      },
+		      postalCode: {
+		        selector: '#postal-code',
+		        placeholder: '11111'
+		      }
+		    }
+		  }, function (hostedFieldsErr, hostedFieldsInstance) {
+		  	  $("#ccerror").hide();
+	          if (hostedFieldsErr) {
+	          	$("#ccerror").show();
+	            console.error(hostedFieldsErr);
+	            return;
+	          }
+
+	          form.addEventListener('submit', function (event) {
+	            event.preventDefault();
+
+	            hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+	              if (tokenizeErr) {
+	                $("#ccerror").show();
+	                return;
+	              }
+
+	              // If this was a real integration, this is where you would
+	              // send the nonce to your server.
+	              $('<input>').attr({
+					    type: 'hidden',
+					    id: 'nonce',
+					    name: 'payment_nonce',
+					    value: payload.nonce
+					}).appendTo('#cardForm');
+    			  document.getElementById("cardForm").submit();
+	            });
+	          }, false);
+	        });
+		}
+</script>
+{/content}

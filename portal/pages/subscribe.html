@@ -1,0 +1,272 @@
+{head}
+<title>[sitetitle] - Portal</title>
+<link href="[siteurl]/style/portal/subscribe.css" type="text/css" rel="stylesheet" />
+<script src="[siteurl]/scripts/jquery.numeric.min.js"></script>
+
+{{if:payment-information}}
+<link href="[siteurl]/style/portal/braintreepayment.css" type="text/css" rel="stylesheet" />
+{{/if}}
+{/head}
+
+{content}
+<div class="container">
+	[portal-nav]
+
+	<div class="user-info">
+		[left-nav]
+		<div class="portal-content">
+			{{if:has-subscription}}
+				{{elseif:address-details}}
+					<div class="center"><h1>Enter your Address</h1></div>
+				{{/elseif}}
+				{{elseif:payment-information}}
+					<div class="center"><h1>Payment Information</h1></div>
+				{{/elseif}}
+				{{else}}
+					<div class="center"><h1>Some Information about you</h1></div>
+				{{/else}}
+			{{/if}}
+			{{if:bad-address-form}}
+				<div class="error">Please fill out all the required fields</div>
+				<br />
+				{{elseif:bad-address-distance}}
+					<div class="error">Sorry, that address is too far from FSU campus!</div>
+					<br />
+				{{/elseif}}
+				{{elseif:bad-address}}
+					<div class="error">Please enter a valid address</div>
+					<br />
+				{{/elseif}}
+			{{/if}}
+
+			{{if:bad-information-form}}
+				<div class="error">Please fill out all the required fields</div>
+				<br />
+			{{/if}}
+
+			{{if:bad-payment}}
+				<div class="error">There was an error processing your card. Please try again.</div>
+				<br />
+			{{/if}}
+
+			{{if:has-subscription}}
+				You already have a subscription. To make changes, please go to the <a href="[siteurl]/portal/subscription">subscription page</a>
+				{{elseif:address-details}}
+					<form class="address" method="post" action="[siteurl]/portal/proc/proc.php">
+						<input type="hidden" name="action" value="add-address" />
+						<span class="group">
+							<input type="text" value="[[complex_name]]" id="complex-name" name="complex-name" required /><br />
+							<label for="complex-name">Apartment Complex Name</label>
+						<span class="group">
+							<input type="text" value="[[address_1]]" id="address1" name="address-1" required /><br />
+							<label for="address1">Address</label>
+						<span class="group">
+							<input type="text" value="[[address_2]]" id="address2" name="address-2" /><br />
+							<label for="address2">Apt/Floor/Suite</label>
+						<span class="group">
+							<input type="text" value="[[building_num]]" id="building-num" name="building-num" /><br />
+							<label for="building-num">Building Number (optional)</label>
+						<span class="group">
+							<input type="text" value="[[gate_code]]" id="gate-code" name="gate-code" /><br />
+							<label for="gate-code">Gate Code (optional)</label>
+						<span class="group">
+							<input type="text" id="input-city" value="Tallahassee" disabled />
+							<label>City</label>
+						<span class="group">
+							<input type="text" id="input-state" value="Florida" disabled />
+							<label>State</label>
+						<span class="group">
+							<input type="text" id="input-zip" value="[[zip_code]]" name="zip-code" maxlength="5" required /><br />
+							<label for="input-zip">Zip Code</label>
+						<input type="submit" value="Continue" />
+						<div class="contained-center" id="back-one">
+							<a href="[siteurl]/portal/subscribe" class="back">Back</a>
+						</div>
+					</form>
+				{{/elseif}}
+				{{elseif:payment-information}}
+					<input type="hidden" name="action" value="add-payment" />
+					<input type="hidden" name="payment_method_nonce">
+					<h3 style="color: #696969;font-weight: bold;">Monthly Payment: \$[[price]]</h3>
+					<p>*Your first month's payment will be charged today
+					<div style="margin-bottom: 15px;">Card Information:</div>
+					<div class="demo-frame">  
+					  <form action="[siteurl]/portal/proc/proc.php" method="post" id="cardForm" >
+					  	<input type="hidden" name="action" value="payment-information" />
+					  	<div style="position: relative;">
+						    <label class="hosted-fields--label" for="card-number">Card Number</label>
+						    <div id="card-number" class="hosted-field"></div>
+					    </div>
+						
+						<div style="position: relative;">
+					    <label class="hosted-fields--label" for="expiration-date">Expiration Date</label>
+					    <div id="expiration-date" class="hosted-field"></div>
+						</div>
+
+						<div style="position: relative;">
+					    <label class="hosted-fields--label" for="cvv">CVV</label>
+					    <div id="cvv" class="hosted-field"></div>
+						</div>
+
+						<div style="position: relative;">
+					    <label class="hosted-fields--label" for="postal-code">Postal Code</label>
+					    <div id="postal-code" class="hosted-field"></div>
+						</div>
+
+					    <div class="button-container">
+					    	<input type="submit" class="button" value="Purchase"/>
+					    </div>
+					    <div class="contained-center">
+							<a href="[siteurl]/portal/subscribe/address" class="back">Back</a>
+					    </div>
+					  </form>
+					</div>
+				{{/elseif}}
+				{{else}}
+					<form class="information" method="post" action="[siteurl]/portal/proc/proc.php">
+						<input type="hidden" name="action" value="add-information" />
+						<span class="group">
+							<input type="text" value="[[firstname]]" name="firstname" id="fname" required />
+							<label for="fname">First Name</label>
+						</span>
+						<span class="group">
+							<input type="text" value="[[lastname]]" name="lastname" id="lname" required />
+							<label for="lname">Last Name</label>
+						</span>
+						<span class="group">
+							<input type="text" value="[[phonenumber]]" name="phone-number" id="phone-number" maxlength="10" required />
+							<label for="phone-number">Phone Number</label>
+						</span>
+						<br />
+						Type of Apartment:
+						<select name="apartment-style">
+							<option value="1">Apartment 1x1</option>
+							<option value="2">Apartment 2x2</option>
+							<option value="3">Apartment 3x3/Apartment 3x2</option>
+							<option value="4">Apartment 4x4/Apartment 4x2</option>
+						</select><br /><br />
+						<div>Trash Pickup Days (Pick 2):
+							<label><input type="checkbox" name="pickupDays[]" value="1" />Monday</label> 
+							<label><input type="checkbox" name="pickupDays[]" value="3" />Wednesday</label>
+							<label><input type="checkbox" name="pickupDays[]" value="5" />Friday</label>
+						</div><br />
+						Pickup Time Slot (Day 1): 
+						<select name="pickupTime1">
+							<option value="8">No Preference</option>
+							<option value="0">11:00 AM - 12:00 PM</option>
+							<option value="1">12:00 PM - 1:00 PM</option>
+							<option value="2">1:00 PM - 2:00 PM</option>
+							<option value="3">2:00 PM - 3:00 PM</option>
+							<option value="4">3:00 PM - 4:00 PM</option>
+							<option value="5">4:00 PM - 5:00 PM</option>
+							<option value="6">5:00 PM - 6:00 PM</option>
+							<option value="7">6:00 PM - 7:00 PM</option>
+						</select>
+						<br /><br />
+						Pickup Time Slot (Day 2): 
+						<select name="pickupTime2">
+							<option value="8">No Preference</option>
+							<option value="0">11:00 AM - 12:00 PM</option>
+							<option value="1">12:00 PM - 1:00 PM</option>
+							<option value="2">1:00 PM - 2:00 PM</option>
+							<option value="3">2:00 PM - 3:00 PM</option>
+							<option value="4">3:00 PM - 4:00 PM</option>
+							<option value="5">4:00 PM - 5:00 PM</option>
+							<option value="6">5:00 PM - 6:00 PM</option>
+							<option value="7">6:00 PM - 7:00 PM</option>
+						</select>
+						<div><input type="submit" value="Continue" /></div>
+					</form>
+				{{/else}}
+			{{/if}}
+		</div>
+	</div>
+</div>
+<script>
+$("#input-zip").numeric({decimal: false, negative: false});
+$("#phone-number").numeric({decimal: false, negative: false});
+$("#card_number").numeric({decimal: false, negative: false});
+</script>
+{{if:payment-information}}
+	<script src="https://js.braintreegateway.com/web/3.12.0/js/client.min.js"></script>
+	<script src="https://js.braintreegateway.com/web/3.12.0/js/hosted-fields.min.js"></script>
+	<script>
+		var form = document.querySelector('#cardForm');
+		$.get("[siteurl]/portal/proc/braintree_tk.php", function(data) {
+			braintree.client.create({
+			  authorization: data
+			}, function(err, clientInstance) {
+			  if (err) {
+			    console.error(err);
+			    return;
+			  }
+			  createHostedFields(clientInstance);
+			});
+		});
+
+		function createHostedFields(clientInstance) {
+			braintree.hostedFields.create({
+			    client: clientInstance,
+			    styles: {
+			      	'input': {
+			        'font-size': '16px',
+			        'font-family': 'Arial',
+			        'font-weight': 'lighter',
+			        'color': '#ccc'
+			      },
+			      ':focus': {
+			        'color': 'black'
+			      },
+			      '.valid': {
+			        'color': '#8bdda8'
+			      }
+			    },
+			    fields: {
+			      number: {
+			        selector: '#card-number',
+			        placeholder: '4111 1111 1111 1111'
+			      },
+			      cvv: {
+			        selector: '#cvv',
+			        placeholder: '123'
+			      },
+			      expirationDate: {
+			        selector: '#expiration-date',
+			        placeholder: 'MM/YYYY'
+			      },
+			      postalCode: {
+			        selector: '#postal-code',
+			        placeholder: '11111'
+			      }
+			    }
+			  }, function (hostedFieldsErr, hostedFieldsInstance) {
+		          if (hostedFieldsErr) {
+		            console.error(hostedFieldsErr);
+		            return;
+		          }
+
+		          form.addEventListener('submit', function (event) {
+		            event.preventDefault();
+
+		            hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+		              if (tokenizeErr) {
+		                console.error(tokenizeErr);
+		                return;
+		              }
+
+		              // If this was a real integration, this is where you would
+		              // send the nonce to your server.
+		              $('<input>').attr({
+						    type: 'hidden',
+						    id: 'nonce',
+						    name: 'payment_nonce',
+						    value: payload.nonce
+						}).appendTo('#cardForm');
+        			  document.getElementById("cardForm").submit();
+		            });
+		          }, false);
+		        });
+			}
+	</script>
+{{/if}}
+{/content}

@@ -1,0 +1,251 @@
+html {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	background: url('../images/background.png');
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	min-width: 876px;
+}
+
+.container a {
+	text-decoration: none;
+}
+
+.center {
+	width: 100%;
+	text-align: center;
+}
+
+.line {
+	width: 400px;
+	height: 1px;
+	border-top: 1px solid #c1c1c1;
+	margin: 40px 0 20px 0;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.success {
+    color: #00b34a;
+}
+
+input.error-box {
+	border: 1px solid #ff0000;
+}
+
+/* TOP CONTENT includes: NAV, MAIN-TEXT, VIDEO DATA, MASK */
+
+.container .top-cont {
+	background-size: 100% 100%;
+	width: 100%;
+	min-height: 750px;
+	height: 100%;
+}
+
+.container .top-cont #main-video {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 750px;
+	z-index: -9999;
+}
+
+.container .top-cont #mask {
+	background: rgba(0,45,71,0.75);
+	width: 100%;
+	min-width: 876px;
+	height: 100%;
+	min-height: 750px;
+	position: absolute;
+	float: left;
+}
+
+#nav-holder {
+	width: 100%;
+	height: 0px;
+	background: rgba(255, 255, 255, 1.0);
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+/* NAVIGATION BAR */
+
+.nav {
+	z-index: 2;
+	float: right;
+	margin-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+}
+
+#logo {
+    background: url(../images/home/logo.png) no-repeat center;
+    background-size: 171px 47px;
+    width: 171px;
+    height: 90px;
+    margin: -10px 40px;
+    float: left;
+}
+
+.nav ul {
+	list-style: none;
+}
+
+.nav ul li {
+	list-style: none;
+	float: left;
+	margin-right: 30px;
+	font-size: 20px;
+}
+
+.nav ul li a{
+	color: #fff;
+	text-decoration: none;
+}
+
+/* HOME PAGE STUFF */
+
+.container .top-cont .holder {
+	width: 100%;
+	height: 100%;
+}
+
+.container .top-cont .holder .main-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	width: 100%;
+	color: #fff;
+	font-size: 50px;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container .top-cont .holder .main-text .button {
+	width: 200px;
+	height: 28px;
+	padding: 8px;
+	background: none;
+	border: 1px solid #2dadff;
+	border-radius: 0px;
+	font-size: 20px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.button {
+	background: #002d47;
+	color: #fff;
+	display: inline-block;
+	text-align: center;
+	padding: 9px 7px 8px 7px;
+	width: 200px;
+	height: 20px;
+}
+
+.container .top-cont .holder .main-text a {
+	text-decoration: none;
+	color: #fff;
+}
+
+/* CONTENT 2 */
+
+.container .content-2 {
+	width: 100%;
+	height: 400px;
+	background: #F0F0F0;
+	z-index: 0;
+}
+
+.content-header {
+	width: 100%;
+	text-align: center;
+	color: #000;
+	font-size: 35px;
+	padding: 10px 0px;
+	margin-bottom: 25px;
+}
+
+.container .content-2 .info {
+	margin-right: 50px;
+	width: 350px;
+	display: inline-block;
+}
+
+.clean-house {
+	width: 128px;
+	height: 128px;
+	background: url('../images/icons/clean-house.png') no-repeat center;
+	background-size: 128px 128px;
+	position: relative;
+	margin-bottom: 120px;
+}
+
+.overloaded-garbage {
+	width: 128px;
+	height: 128px;
+	background: url('../images/icons/overloaded-garbage.png') no-repeat center;
+	background-size: 128px 128px;
+	position: relative;
+	margin-bottom: 120px;
+}
+
+.mobile-nav {
+    display: none;
+    cursor: pointer;
+    float: right;
+    margin: 20px 40px 0px 0px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #063e6b;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+    background-color: #063e6b;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+    background-color: #063e6b;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+    background-color: #063e6b;
+}
+
+/* CONTENT 2 */
+
+.container .content-3 {
+	width: 100%;
+	height: 1180;
+	background: #fff;
+	z-index: 0;
+}

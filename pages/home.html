@@ -1,0 +1,79 @@
+{head}
+	<script src="[siteurl]/scripts/home.js"></script>
+	<link rel="stylesheet" href="[siteurl]/style/home.css" type="text/css" />
+	<title>[sitetitle]</title>
+{/head}
+
+{content}
+<div class="container">
+	<div class="top-cont">
+		{{if:is-desktop}}
+			<video autoplay loop muted poster="[siteurl]/images/home/homebg.jpg" id="main-video">
+		    	<source src="[siteurl]/images/home/replay-vid.mp4" type="video/mp4" />
+			</video>
+		{{/if}}
+		<div id="mask">
+			[nav]
+			<div class="holder">
+				<div class="main-text">
+					<span style="font-family:'Open Sans', sans-serif">Have your trash picked up from your front door.<br /></span>
+					<span style="font-size: 18px">Starting at $9.99 per month</span>
+					<br />
+					<a href="[siteurl]/pricing"><div class="button">Pricing</div></a>
+					<a href="#" onclick="scrollTo('#how-it-works')"><div class="button">How it Works</div></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content-2">
+		<div class="content-header">What We Do</div>
+		<div class="center">
+			<div style="margin-bottom: 20px;">
+				<div class="info clean-house">
+					<div class="info icon-info">
+						Two times a week, we send a trash-collector to your home to pickup trash bags from your front door.
+					</div>
+				</div>
+				<div class="info overloaded-garbage">
+					<div class="info icon-info">
+						This way you can keep your home clean, garbage-free, and save you time from dragging your trash to the dumpsters.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content-3">
+		<div id="howitworks-holder" style="position: relative;top:-70px;visibility:hidden;"></div>
+		<div class="content-header" id="how-it-works">How It Works</div>
+		<div class="user-laptop icon" id="user-laptop">
+			<div class="info">
+				<div class="center"><h1>You Tell Us When</h1></div>
+				<ul>
+					<li>While subscribing to our service, you tell us what 2 days to pickup your trash.</li>
+					<li>For each of those days, you pick an hour time slot in which a trash-collector will come to get it.</li>
+					<li>Once subscribed, you can easily make changes to your subscription if need be</li>
+				</ul>
+			</div>
+		</div>
+		<div class="full-garbage icon" id="full-garbage">
+			<div class="info left">
+				<div class="center"><h1>Trash Full?</h1></div>
+				<ul>
+					<li>Once your selected days come, place your trash bags outside your front door during your time slot</li>
+					<li>This way, you will not be charged by your apartment complex for having trash outside</li>
+					<li>We recommend you place them outside 10 minutes before the timeslot</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pickup-truck icon" id="pickup-truck">
+			<div class="info">
+				<div class="center"><h1>Trash Pickup</h1></div>
+				<ul>
+					<li>A trash collector will pickup your trash-bags from your front door</li>
+					<li>This way, its quick, easy, and your home stays clean</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{/content}

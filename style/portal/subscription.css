@@ -1,0 +1,16 @@
+.container .user-info {
+    height: 640px;
+}
+
+.demo-frame #cardForm .hosted-field {
+    left: 0px;
+}
+
+.info-table {
+	width: 100%;
+	text-align: left;
+}
+
+.info-table tr td {
+	width: 50%;
+}

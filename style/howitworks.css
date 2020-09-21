@@ -1,0 +1,55 @@
+body {
+	font-size: 18px;
+}
+
+.working-container {
+    width: 65%;
+    min-width: 650px;
+    padding: 20px;
+    background: #fff;
+    margin: auto;
+    height: 650px;
+}
+
+.user-laptop {
+    width: 100%;
+    height: 202px;
+    background: url(../images/icons/man-laptop.png) no-repeat left;
+    background-size: 202px 202px;
+    display: inline-block;
+}
+
+.home-garbage {
+    width: 100%;
+    height: 202px;
+    background: url(../images/icons/home-garbage.png) no-repeat right;
+    background-size: 202px 202px;
+    display: inline-block;
+}
+
+.truck-pickup {
+    width: 100%;
+    height: 202px;
+    background: url(../images/icons/truck.png) no-repeat left;
+    background-size: 202px 202px;
+    display: inline-block;
+}
+
+.info {
+	display: inline-block;
+    position: absolute;
+    left: 250px;
+    top: 70px;
+}
+
+.info-left {
+	display: inline-block;
+    position: absolute;
+    right: 200px;
+    top: 80px;
+}
+
+.icon {
+	position: relative;
+	display: none;
+}

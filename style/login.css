@@ -1,0 +1,90 @@
+body {
+	background: #fff;
+	margin: 0;
+	padding: 0px;
+	background: url('../images/background.png');
+}
+
+.nav ul li a{
+	color: rgb(0,45,71);
+	text-decoration: none;
+}
+
+#nav-holder {
+	height: 67px;
+    margin-bottom: 23px;
+    background: rgb(241, 241, 241);
+}
+
+.container {
+	min-width: 200px;
+	text-align: center;
+}
+
+.container .login-holder {
+	width: 400px;
+	height: 500px;
+	margin: auto;
+}
+
+h1 {
+	margin: 0 0 17px 0;
+	padding: 0;
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a h1 {
+	color: #033f61;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+	a h1 {
+	    margin-top: 70px;
+	}
+}
+
+.login-form {
+	margin-top: 20px;
+}
+
+.login-form input[type="email"], .login-form input[type="password"] {
+	width: 375px;
+	height: 50px;
+	padding: 15px;
+	font-size: 18px;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	border: 1px solid #d7d7d7;
+}
+
+.login-form input.error-box {
+	border: 1px solid #ff0000;
+}
+
+.login-form input[type="submit"] {
+	width: 375px;
+	height: 40px;
+	background: #002d47;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	padding: 7px 7px 9px 7px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.final {
+	margin-bottom: 20px;
+}
+
+.login-form a {
+	color: #002d47;
+	text-decoration: none;
+	margin-bottom: 10px;
+	display: block;
+	font-family: 'Roboto', sans-serif;
+}

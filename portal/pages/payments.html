@@ -1,0 +1,21 @@
+{head}
+<link href="[siteurl]/style/portal/home.css" type="text/css" rel="stylesheet" />
+<title>[sitetitle] - Portal</title>
+{/head}
+{content}
+<div class="container">
+	[portal-nav]
+
+	<div class="user-info">
+		[left-nav]
+		<div class="portal-content">
+			<h1>Your Payments</h1>
+			<table class="payments-table" border="0" cellpadding="13" cellspacing="0">
+				<tr>
+					<td>Date</td><td>{{if:is-desktop}}Order Number{{else}}Order #{{/else}}{{/if}}</td><td>Amount</td><td>{{if:is-desktop}}Card Used{{else}}Card{{/else}}{{/if}}</td></tr>
+					[[payments]]
+			</table>
+		</div>
+	</div>
+</div>
+{/content}

@@ -1,0 +1,79 @@
+.nav ul li a{
+	color: rgb(0,45,71);
+	text-decoration: none;
+}
+
+#nav-holder {
+	height: 67px;
+    margin-bottom: 23px;
+    background: rgb(241, 241, 241);
+}
+
+.center h1 {
+	color: #033f61;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 52px;
+    margin: 53px 0px 20px 0px;
+}
+
+.plan-holder {
+	margin: auto;
+	width: 800px;
+}
+
+.plan {
+	width: 350px;
+	height: 275px;
+	background: #f2f2f2;
+	border: 1px solid #d7d7d7;
+	padding: 3px 3px 10px 3px;
+	position: relative;
+}
+
+.plan-holder .plan-1 {
+	float: left;
+}
+
+.plan-holder .plan-2 {
+	float: right;
+}
+
+.plan .button {
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    width: 100%;
+    height: 44px;
+    background: #002d47;
+    padding: 13px 2px 0px 0px;
+    font-size: 24px;
+}
+
+.plan a .button {
+	color: #fff;
+}
+
+.incentives {
+	text-align: left;
+	margin-top: 50px;
+}
+
+.incentives ul li {
+	margin-bottom: 5px;
+}
+
+.price {
+	font-weight: bold;
+	font-size: 20px;
+	position: absolute;
+	bottom: 15px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 260px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.price-holder {
+	background: #fff;
+	height: 490px;
+}

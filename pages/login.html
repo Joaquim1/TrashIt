@@ -1,0 +1,29 @@
+{head}
+	<title>Login</title>
+	<link href="[siteurl]/style/login.css" rel="stylesheet" type="text/css" />
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+{/head}
+
+{content}
+	<div class="container">
+		[nav]
+		<div class="login-holder">
+			{{if:bad-login}}
+				<div class="error" style="margin-bottom: 10px;">Invalid email or password</div>
+			{{/if}}
+			<div><h1>Login</h1></div>
+			<div class="line" style="margin-top: 10px"></div>
+			<div class="login-form">
+				<form action="[siteurl]/proc/proc.php" method="POST">
+					<input type="hidden" name="action" value="login" />
+					<input type="email" {{if:bad-login}}class="error-box"{{/if}} placeholder="Email Address" id="user-email" name="email" /><br />
+					<input type="password" {{if:bad-login}}class="error-box"{{/if}} placeholder="Password" id="user-password" name="password" /><br />
+					<input type="submit" value="Login" />
+				</form>
+				<div class="line final"></div>
+				<a href="[siteurl]/forgot">Forgot Password?</a>
+				<a href="[siteurl]/register">Don't have an account? Sign Up</a>
+			</div>
+		</div>
+	</div>
+{/content}
